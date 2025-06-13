@@ -1,7 +1,6 @@
-import Togglable from "./Togglable";
-import blogService from "../services/blogs";
+import Togglable from './Togglable';
 
-const Blog = ({ blog, increaseLikes }) => {
+const Blog = ({ blog, increaseLikes, removeBlog }) => {
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -22,6 +21,7 @@ const Blog = ({ blog, increaseLikes }) => {
               <button onClick={() => increaseLikes(blog)}>like</button>
             </p>
             <p>added by {blog.user.name}</p>
+            <button onClick={() => removeBlog(blog)}>remove</button>
           </div>
         </Togglable>
       </div>
