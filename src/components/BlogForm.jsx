@@ -15,14 +15,18 @@ const BlogForm = ({ createBlog }) => {
     });
   };
 
-  const addBlog = (event) => {
+  const addBlog = async (event) => {
     event.preventDefault();
-    createBlog(newBlog);
-    setNewBlog({
-      title: '',
-      author: '',
-      url: '',
-    });
+    try {
+      await createBlog(newBlog);
+      setNewBlog({
+        title: '',
+        author: '',
+        url: '',
+      });
+    } catch (error) {
+      console.error('Failed to create blog:', error);
+    }
   };
 
   return (
