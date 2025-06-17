@@ -11,23 +11,29 @@ const Blog = ({ blog, increaseLikes, removeBlog }) => {
 
   return (
     <div style={blogStyle}>
-      <div>
+      <div className="blog">
         {blog.title} {blog.author}
-        <Togglable showButtonLabel="view" hideButtonLabel="hide" childrenBelowButton>
-          <div>
-            <p>{blog.url}</p>
-            <p>
-              {blog.likes} likes
-              <button onClick={() => increaseLikes(blog)}>like</button>
-            </p>
-            <p>added by {blog.user.name}</p>
-            <button onClick={() => removeBlog(blog)}>remove</button>
-          </div>
+        <Togglable
+          showButtonLabel="view"
+          hideButtonLabel="hide"
+          childrenBelowButton
+        >
+          <p id="url">{blog.url}</p>
+          <p id="likes">
+            {blog.likes} likes
+            <button
+              onClick={() => increaseLikes(blog)}
+              className="like-button"
+            >
+              like
+            </button>
+          </p>
+          <p id="username">added by {blog.user.name}</p>
+          <button onClick={() => removeBlog(blog)}>remove</button>
         </Togglable>
       </div>
     </div>
   );
-
 };
 
 export default Blog;
